@@ -9,11 +9,9 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import ImageList from './components/ImageList.vue';
 
 @Options({
   components: {
-    ImageList,
   },
 })
 export default class App extends Vue {}

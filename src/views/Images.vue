@@ -1,17 +1,24 @@
 <template>
     <div class="image-list-page">
         <h1>Images</h1>
-        <ImageList></ImageList>
+        <podList v-bind:pods="pods"/>
     </div>
 </template>
   
 <script lang="ts">
-    import ImageList from '../components/ImageList.vue'
+    import podList from '../components/podList.vue'
+    import {Pod} from '../components/podList.vue'
+
     export default {
         name: 'Images',
         components: {
-            ImageList
-        }
+            podList
+        },
+        data() {
+            return {
+                pods: [{id: 1, url: "AAA"}, {id: 2, url: "BBB"}, {id: 3, url :"CCC"}] as Pod[]
+            };
+        },
     }
 </script>
   
