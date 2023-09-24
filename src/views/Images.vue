@@ -5,21 +5,11 @@
     </div>
 </template>
   
-<script lang="ts">
-    import podList from '../components/podList.vue'
-    import {Pod} from '../components/podList.vue'
+<script setup lang="ts">
+import podList from '../components/podList.vue'
+import Pod from '../components/podList.vue'
 
-    export default {
-        name: 'Images',
-        components: {
-            podList
-        },
-        data() {
-            return {
-                pods: [{id: 1, url: "AAA"}, {id: 2, url: "BBB"}, {id: 3, url :"CCC"}] as Pod[]
-            };
-        },
-    }
+const pods: Array<Pod> = [{id: 1, url: "AAA"}, {id: 2, url: "BBB"}, {id: 3, url :"CCC"}]
 </script>
   
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -17,6 +17,7 @@
     "eslint-plugin-react": "^7.33.2",
     "vue": "^3.3.4",
     "vue-class-component": "^8.0.0-0",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.2.4",
     "vuetify": "^3.3.17"
   },
