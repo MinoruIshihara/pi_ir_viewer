@@ -1,20 +1,19 @@
 <template>
-  <div id="app">
+  <v-app>
     <div id="nav">
+      <v-app-bar color="primary">
+        <template v-slot:prepend>
+          <v-icon>{{ mdiHome }}</v-icon>
+        </template>
+      </v-app-bar>
       <router-link to="/">Home</router-link>
     </div>
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-
-@Options({
-  components: {
-  },
-})
-export default class App extends Vue {}
+<script setup lang="ts">
+import { mdiHome } from '@mdi/js'
 </script>
 
 <style>
