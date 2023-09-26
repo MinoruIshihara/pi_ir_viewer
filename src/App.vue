@@ -3,10 +3,13 @@
     <div id="nav">
       <v-app-bar color="primary">
         <template v-slot:prepend>
-          <v-icon>{{ mdiHome }}</v-icon>
+          <v-btn :icon="mdiHome" to="/"></v-btn>
         </template>
+        
+        <v-app-bar-title>
+          Pi Camera Viewer
+        </v-app-bar-title>
       </v-app-bar>
-      <router-link to="/">Home</router-link>
     </div>
     <router-view/>
   </v-app>
