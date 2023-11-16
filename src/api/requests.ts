@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, AxiosStatic } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import imageDetail from './image.json';
 import pod from './pod.json';
@@ -13,7 +13,7 @@ export const getImageList =
 async () :Promise<ImageDetail[]> => {
   try {
     const response: AxiosResponse<ImageDetail[]> = await axios.get(
-      `${apiHostName}/wallpaper/image/`
+      `${apiHostName}/ir_server/image/`
     );
     console.log(response);
     return response.data;
@@ -27,7 +27,7 @@ export const getLatestImagePromise =
 async () :Promise<ImageDetail> => {
   try {
     const response: AxiosResponse<ImageDetail> = await axios.get(
-      `${apiHostName}/wallpaper/image/latest/`
+      `${apiHostName}/ir_server/image/latest/`
     );
     console.log(response);
     return response.data;

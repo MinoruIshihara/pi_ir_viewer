@@ -2,7 +2,7 @@
   "name": "pi_ir_viewer",
   "version": "1.0.0",
   "private": true,
-  "description": "ラズパイ赤外カメラサーバー用Webビュワー(フロントエンド) - 画像サーバー(バックエンド):<br> https://github.com/MinoruIshihara/wallpaper_api",
+  "description": "ラズパイ赤外カメラサーバー用Webビュワー(フロントエンド) - 画像サーバー(バックエンド):<br> https://github.com/MinoruIshihara/ir_server",
   "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
