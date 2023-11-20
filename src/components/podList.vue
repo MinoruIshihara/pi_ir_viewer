@@ -76,14 +76,14 @@
                     </v-window-item>
                     <v-window-item>
                         <v-img
-                            v-bind:src="imageDetailList[0].file"
+                            v-bind:src="latestStat.file"
                             class="mx-auto"
-                            height="300px"
-                            width="300px"
-                            cover>
+                            contain
+                            max-height="300"
+                            >
                         </v-img>
                         <v-card-text>
-                            最終更新:{{ latestImage.created_at }}
+                            最終更新:{{ latestStat.created_at }}
                         </v-card-text>
                     </v-window-item>
                 </v-window>
@@ -100,10 +100,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, onMounted } from 'vue';
-import { mdiMenu, mdiMagnify, mdiCamera } from '@mdi/js';
-import { Pod, ImageDetail, emptyImageDetail } from '../api/requests';
-import { getImageList, getLatestImagePromise } from '../api/requests';
+import { mdiMagnify, mdiMenu } from '@mdi/js';
+import { defineProps, onMounted, ref } from 'vue';
+import { ImageDetail, Pod, emptyImageDetail, getImageList, getLatestImagePromise, getLatestStatPromise } from '../api/requests';
 
 const props = defineProps<{
     pods: Array<Pod>
@@ -137,6 +136,7 @@ const updateImageList = () => {
 }
 
 const latestImage = ref<ImageDetail>(emptyImageDetail);
+const latestStat = ref<ImageDetail>(emptyImageDetail);
 const updateTimer = ref(0);
 const updateLatestImage = () => {
     getLatestImagePromise()
@@ -145,7 +145,14 @@ const updateLatestImage = () => {
             latestImage.value = value;
         }
     );
+    getLatestStatPromise()
+    .then(
+        (value: ImageDetail) => {
+            latestStat.value = value;
+        }
+    );
 }
+
 onMounted(
     () => {
         updateTimer.value = setInterval(

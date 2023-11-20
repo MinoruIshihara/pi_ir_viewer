@@ -36,3 +36,17 @@ async () :Promise<ImageDetail> => {
     return emptyImageDetail;
   }
 }
+
+export const getLatestStatPromise = 
+async () :Promise<ImageDetail> => {
+  try {
+    const response: AxiosResponse<ImageDetail> = await axios.get(
+      `${apiHostName}/ir_server/stat/latest/`
+    );
+    console.log(response);
+    return response.data;
+  } catch (error: any) {
+    console.log(error);
+    return emptyImageDetail;
+  }
+}
