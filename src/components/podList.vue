@@ -78,9 +78,9 @@
                         <v-img
                             v-bind:src="latestStat.file"
                             class="mx-auto"
-                            height="300px"
-                            width="300px"
-                            cover>
+                            contain
+                            max-height="300"
+                            >
                         </v-img>
                         <v-card-text>
                             最終更新:{{ latestStat.created_at }}
@@ -102,7 +102,7 @@
 <script setup lang="ts">
 import { mdiMagnify, mdiMenu } from '@mdi/js';
 import { defineProps, onMounted, ref } from 'vue';
-import { ImageDetail, Pod, emptyImageDetail, getImageList, getLatestImagePromise, getStatPromise } from '../api/requests';
+import { ImageDetail, Pod, emptyImageDetail, getImageList, getLatestImagePromise, getLatestStatPromise } from '../api/requests';
 
 const props = defineProps<{
     pods: Array<Pod>
@@ -145,7 +145,7 @@ const updateLatestImage = () => {
             latestImage.value = value;
         }
     );
-    getStatPromise()
+    getLatestStatPromise()
     .then(
         (value: ImageDetail) => {
             latestStat.value = value;

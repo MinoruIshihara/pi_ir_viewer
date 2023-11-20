@@ -37,11 +37,11 @@ async () :Promise<ImageDetail> => {
   }
 }
 
-export const getStatPromise = 
+export const getLatestStatPromise = 
 async () :Promise<ImageDetail> => {
   try {
     const response: AxiosResponse<ImageDetail> = await axios.get(
-      `${apiHostName}/ir_server/statistics/`
+      `${apiHostName}/ir_server/stat/latest/`
     );
     console.log(response);
     return response.data;
